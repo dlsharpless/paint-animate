@@ -38,8 +38,12 @@ $(".color").on("click",function(){
 //paint canvas
 let paint = function(){
     $(".pixel").on("mousedown",function(){
+        $("#canvas").on("contextmenu", event => event.preventDefault());
         let mousePressed = true;
         this.style.backgroundColor = activeColor;
+        $(document).on("mouseup",function(){
+            mousePressed = false;
+        });
         $(".pixel").on("mouseover",function(){
             if (mousePressed) {
                 this.style.backgroundColor = activeColor;
@@ -74,11 +78,12 @@ $("#next").on("click",function(){
 
 //play all
 $("#play").on("click",function(){
-if (frame != 0) {
-    for (i = 0; i < reel.length; i++) {
-        (function(i) {setTimeout(function() {$("#canvas").html(reel[i]);},500 * i);})(i);
+    if (frame != 0) {
+        for (i = 0; i < reel.length; i++) {
+            (function(i) {setTimeout(function() {$("#canvas").html(reel[i]);},500*i);})(i);
+        }
     }
-}
+    setTimeout(paint,500*reel.length);
 });
 
 paint();
