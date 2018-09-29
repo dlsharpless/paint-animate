@@ -9,12 +9,12 @@ let activeColor = "black";
 let frame = 0;
 let reel = [""];
 
-//render pallette
-let palletteHTML = `<div class="color" style="background-color:black;height:${colorHeight-2+canvasHeight%colors.length}px;top:0}"></div>`;
+//render palette
+let paletteHTML = `<div class="color" style="background-color:black;height:${colorHeight-2+canvasHeight%colors.length}px;top:0}"></div>`;
 for (i = 1; i < colors.length; i++) {
-    palletteHTML += `<div class="color" style="background-color:${colors[i]};height:${colorHeight-2}px;top:${canvasHeight*i}"></div>`;
+    paletteHTML += `<div class="color" style="background-color:${colors[i]};height:${colorHeight-2}px;top:${canvasHeight*i}"></div>`;
 }
-$("#pallette").html(palletteHTML);
+$("#palette").html(paletteHTML);
 
 //render canvas
 let canvasHTML = "";
@@ -48,9 +48,6 @@ let paint = function(){
             if (mousePressed) {
                 this.style.backgroundColor = activeColor;
             }
-            $(document).on("mouseup",function(){
-                mousePressed = false;
-            });
         });
     });
 }
@@ -78,6 +75,7 @@ $("#next").on("click",function(){
 
 //play all
 $("#play").on("click",function(){
+    reel[frame] = $("#canvas").html();
     if (frame != 0) {
         for (i = 0; i < reel.length; i++) {
             (function(i) {setTimeout(function() {$("#canvas").html(reel[i]);},500*i);})(i);

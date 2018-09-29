@@ -45,7 +45,7 @@ button:focus {
     user-select: none;
 }
 
-#pallette {
+#palette {
     width: 10%;
     height: 100%;
     position: fixed;
