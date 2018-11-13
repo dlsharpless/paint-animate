@@ -19,7 +19,7 @@ button:focus {
 #controls {
     width: 10%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     left: 80%;
     top: 0;
 }
@@ -46,9 +46,8 @@ button:focus {
 }
 
 #palette {
-    width: 10%;
-    height: 100%;
-    position: fixed;
+    width: calc(10% - 2px);
+    position: absolute;
     left: 90%;
     top: 0;
 }

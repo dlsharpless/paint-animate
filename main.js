@@ -1,6 +1,8 @@
 let canvasWidth = $("#canvas").width();
 let canvasHeight = $("#canvas").height();
-let colors = ["black","gray","white","red","orange","yellow","green","blue","purple"];
+ let colors = ["black","gray","white","burlywood","saddlebrown","red","orange","yellow","green","blue","purple"];
+// let crayonHex = ["#232323","#199EBD","#1CAC78","#1DACD6","#1F75FE","#5D76CB","#7366BD","#80DAEB","#926EAE","#95918C","#B0B7C6","#B5674D","#BC5D58","#C0448F","#C5E384","#CDA4DE","#DBD7D2","#EDEDED","#EE204D","#F0E891","#F75394","#FAA76C","#FC2847","#FCE883","#FDBCB4","#FDD9B5","#FDDB6D","#FF5349","#FF7538","#FFAACC","#FFB653","#FFCFAB"];
+//let crayonName = ["Black","Blue Green","Green","Cerulean","Blue","Indigo","Blue Violet","Sky Blue","Violet (Purple)","Gray","Cadet Blue","Brown","Chestnut","Red Violet","Yellow Green","Wisteria","Timberwolf","White","Red","Green Yellow","Violet Red","Tan","Scarlet","Yellow","Melon","Apricot","Dandelion","Red Orange","Orange","Carnation Pink","Yellow Orange","Peach"];
 let colorHeight = Math.floor(canvasHeight/colors.length);
 let pixelDimension = 8;
 let pixelColumns = Math.floor(canvasWidth/pixelDimension);
@@ -10,7 +12,7 @@ let frame = 0;
 let reel = [""];
 
 //render palette
-let paletteHTML = `<div class="color" style="background-color:black;height:${colorHeight-2+canvasHeight%colors.length}px;top:0}"></div>`;
+let paletteHTML = `<div class="color" style="background-color:${colors[0]};height:${colorHeight-2+canvasHeight%colors.length}px;top:0}"></div>`;
 for (i = 1; i < colors.length; i++) {
     paletteHTML += `<div class="color" style="background-color:${colors[i]};height:${colorHeight-2}px;top:${canvasHeight*i}"></div>`;
 }
